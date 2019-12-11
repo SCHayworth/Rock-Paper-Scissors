@@ -29,7 +29,7 @@ def main():
     user_choice = None
     while user_choice not in (1, 2, 3):
         try:
-            user_choice = int(input('Input the integer for your choice: '))
+            user_choice = int(input('\nInput the integer for your choice: '))
         except ValueError:
             print('You must enter 1, 2, or 3!')
             continue
@@ -37,7 +37,7 @@ def main():
         # Retrieve RPS move values from the MOVE_OPTIONS dictionary and print them.
         user_move = MOVE_OPTIONS[user_choice]
         cpu_move = MOVE_OPTIONS[cpu_choice]
-        print(f'User: {user_move}')
+        print(f'\nUser: {user_move}')
         print(f'CPU: {cpu_move}')
 
         # Call the is_winner function to see if the player wins and print the
@@ -89,5 +89,5 @@ def play_again(prompt, reminder='Please answer y/n.'):
 run_program = True
 while run_program == True:
     main()
-    run_program = play_again('Would you like to play again (y/n)? ')
-print('Thank you for playing!')
+    run_program = play_again('\nWould you like to play again (y/n)? ')
+print('\nThank you for playing!')
