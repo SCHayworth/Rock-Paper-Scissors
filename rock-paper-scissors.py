@@ -42,10 +42,10 @@ def main():
             print('Tie game!')
         else:
             player_wins = is_winner(user_choice, cpu_choice)
-                if player_wins == True:
-                    print('You win!')
-                else:
-                    print('CPU wins!')
+            if player_wins == True:
+                print('You win!')
+            else:
+                print('CPU wins!')
 
 
 def is_winner(move_a, move_b):
