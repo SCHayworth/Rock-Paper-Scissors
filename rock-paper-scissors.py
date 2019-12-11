@@ -81,4 +81,8 @@ def play_again(prompt, reminder='Please answer y/n.'):
         print(reminder)
 
 
-# Loop the main() function as long as the run_program condition is True.        
+# Loop the main() function as long as the run_program condition is True.
+run_program = True
+while run_program == True:
+    main()
+    run_program = play_again()
