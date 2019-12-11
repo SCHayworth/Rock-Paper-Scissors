@@ -26,30 +26,30 @@ def main():
     # Print the move options and get a valid selection from the user.
     # If the selection is not valid, ask again until it is.
     print('1 = Rock; 2 = Paper; 3 = Scissors')
-    try:
-        user_choice = int(input('Input the integer for your choice: '))
-        while user_choice not in (1, 2, 3):
-            user_choice = int(input('Please enter 1 for Rock, 2 for Paper, or 3 for Scissors: '))
-        else:
-            # Retrieve RPS move values from the MOVE_OPTIONS dictionary and print them.
-            user_move = MOVE_OPTIONS[user_choice]
-            cpu_move = MOVE_OPTIONS[cpu_choice]
-            print(f'User: {user_move}')
-            print(f'CPU: {cpu_move}')
+    user_choice = None
+    while user_choice not in (1, 2, 3):
+        try:
+            user_choice = int(input('Input the integer for your choice: '))
+        except ValueError:
+            print('You must enter 1, 2, or 3!')
+            continue
+    else:
+        # Retrieve RPS move values from the MOVE_OPTIONS dictionary and print them.
+        user_move = MOVE_OPTIONS[user_choice]
+        cpu_move = MOVE_OPTIONS[cpu_choice]
+        print(f'User: {user_move}')
+        print(f'CPU: {cpu_move}')
 
-            # Call the is_winner function to see if the player wins and print the
-            # result of the game.
-            if user_choice == cpu_choice:
-                print('Tie game!')
+        # Call the is_winner function to see if the player wins and print the
+        # result of the game.
+        if user_choice == cpu_choice:
+            print('Tie game!')
+        else:
+            player_wins = is_winner(user_choice, cpu_choice)
+            if player_wins == True:
+                print('You win!')
             else:
-                player_wins = is_winner(user_choice, cpu_choice)
-                if player_wins == True:
-                    print('You win!')
-                else:
-                    print('CPU wins!')
-    except ValueError:
-        print('Please enter a 1, 2, or 3')
-        continue
+                print('CPU wins!')
 
 
 def is_winner(move_a, move_b):
