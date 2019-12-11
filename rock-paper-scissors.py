@@ -16,6 +16,9 @@ MOVE_OPTIONS = { 1 : 'Rock',
                  2 : 'Paper',
                  3 : 'Scissors'}
 
+# Initialize constant tuple of valid move choices.
+VALID_MOVES = (1, 2, 3)
+
 
 # Define the functions used in the program
 def main():
@@ -27,7 +30,7 @@ def main():
     # If the selection is not valid, ask again until it is.
     print('1 = Rock; 2 = Paper; 3 = Scissors')
     user_choice = input('Input the integer for your choice: ')
-    while user_choice not in (1, 2, 3):
+    while user_choice not in VALID_MOVES:
         user_choice = input('Please enter 1 for Rock, 2 for Paper, or 3 for Scissors: ')
     else:
         # Retrieve RPS move values from the MOVE_OPTIONS dictionary and print them.
