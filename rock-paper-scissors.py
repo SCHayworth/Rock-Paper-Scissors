@@ -17,7 +17,6 @@ MOVE_OPTIONS = { 1 : 'Rock',
                  3 : 'Scissors'}
 
 
-
 # Define the functions used in the program
 def main():
     '''This is the mainline program logic loop.'''
@@ -28,8 +27,8 @@ def main():
     # If the selection is not valid, ask again until it is.
     print('1 = Rock; 2 = Paper; 3 = Scissors')
     user_choice = int(input('Input the integer for your choice: '))
-    while user_choice not in [1, 2, 3]:
-        user_choice = input('Please enter 1 for Rock, 2 for Paper, or 3 for Scissors: ')
+    while user_choice not in (1, 2, 3):
+        user_choice = int(input('Please enter 1 for Rock, 2 for Paper, or 3 for Scissors: '))
     else:
         # Retrieve RPS move values from the MOVE_OPTIONS dictionary and print them.
         user_move = MOVE_OPTIONS[user_choice]
@@ -86,4 +85,5 @@ def play_again(prompt, reminder='Please answer y/n.'):
 run_program = True
 while run_program == True:
     main()
-    run_program = play_again('Would you like to play again (y/n)?')
+    run_program = play_again('Would you like to play again (y/n)? ')
+print('Thank you for playing!')
